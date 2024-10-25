@@ -1,17 +1,20 @@
+import model.IPhone;
+import model.IneStudent;
+import model.Phone;
+import model.Student;
+
 public class Main {
-    public static void main(String[] args) {
-        Student student1 = new Student();
-        student1.name = "Jane Smith";
-        student1.mean = 16.0;
-        System.out.println(student1);
+    public static void main(String[] args) throws UnderAverageException {
+        IneStudent student = new IneStudent();
+        student.setName("Cahetelle");
+        student.setAverage(15.0);
 
-        Student student2 = new Student(14.75);
-        System.out.println(student2);
+        try {
+            System.out.println(student.payScholarship(500.0, "FEDAPAY"));
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
+        }
 
-        Student student3 = new Student("John Doe");
-        System.out.println(student3);
-
-        Student student4 = new Student("Aaron Smith", 9.0);
-        System.out.println(student4);
+        System.out.println("Hello World!");
     }
 }
